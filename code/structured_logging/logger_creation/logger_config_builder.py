@@ -5,26 +5,8 @@ from structured_logging.sinks.i_sink import ISink
 
 
 class LoggerConfigBuilder:
-    def __init__(
-        self,
-        sink=None,
-        processor=None,
-        is_async: bool = False,
-        async_wait_delay_in_seconds: int = 0,
-    ) -> None:
-        
-        if sink is None:
-            self.sink: ISink = ConsoleSink()
-        else:
-            self.sink: ISink = sink
-
-        if processor is None:
-            self.processor: IProcessor = NullProcessor()
-        else:
-            self.processor: IProcessor = processor
-
-        self.is_async: bool = is_async
-        self.async_wait_delay_in_seconds: int = async_wait_delay_in_seconds
+    def __init__(self) -> None:
+        self._clear()
 
     def with_custom_sink(self, sink: ISink) -> "LoggerConfigBuilder":
         raise NotImplementedError()
