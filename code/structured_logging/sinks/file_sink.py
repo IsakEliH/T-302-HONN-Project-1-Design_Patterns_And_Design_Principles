@@ -1,5 +1,5 @@
 import json
-from sinks.i_sink import ISink
+from sinks import ISink
 
 class FileSink(ISink):
     def __init__(self, file_path: str):

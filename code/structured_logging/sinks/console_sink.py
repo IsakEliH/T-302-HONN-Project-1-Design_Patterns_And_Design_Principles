@@ -1,4 +1,4 @@
-from i_sink import ISink
+from sinks import ISink
 import json
 
 class ConsoleSink(ISink):
