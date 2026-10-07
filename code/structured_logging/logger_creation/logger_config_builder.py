@@ -12,7 +12,9 @@ class LoggerConfigBuilder:
         raise NotImplementedError()
 
     def with_file_sink(self, file_path: str) -> "LoggerConfigBuilder":
-        raise NotImplementedError()
+        self.file_path: str = file_path
+        self.sink = FileSink()
+        return self
 
     def with_console_sink(self) -> "LoggerConfigBuilder":
         raise NotImplementedError()
@@ -33,4 +35,17 @@ class LoggerConfigBuilder:
         self.async_wait_delay_in_seconds: int = 0
 
     def build(self) -> LoggerConfig:
+        if isinstance(self.sink, ConsoleSink):
+            sink = self.with_console_sink()
+        elif isinstance(self.sink, FileSink):
+            sink = self.with_file_sink(self.file_path)
+        else:
+            sink = self.with_custom_sink()
+
+        # Specify the processing work for the logging data
+
+        # Then go through Async process
+        if self.is_async:
+            self.as_async(self.async_wait_delay_in_seconds)
+
         raise NotImplementedError()
