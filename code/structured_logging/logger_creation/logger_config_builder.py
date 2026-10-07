@@ -1,8 +1,9 @@
 from sinks import ConsoleSink, FileSink, ISink
+from processors import NullProcessor, IProcessor
 
 from structured_logging.configuration.environment import Environment
 from structured_logging.configuration.logger_config import LoggerConfig
-from structured_logging.processors.i_processor import IProcessor
+
 
 
 class LoggerConfigBuilder:
@@ -31,7 +32,8 @@ class LoggerConfigBuilder:
         raise NotImplementedError()
 
     def add_processor(self, processor: IProcessor) -> "LoggerConfigBuilder":
-        raise NotImplementedError()
+        self.processor = processor
+        return self
 
     def _clear(self) -> None:
         self.sink: ISink = ConsoleSink()
