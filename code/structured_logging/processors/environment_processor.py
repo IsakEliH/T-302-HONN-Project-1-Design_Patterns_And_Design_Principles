@@ -1,5 +1,5 @@
-from abstract_processor import AbstractProcessor
-from structured_logging.configuration.environment import Environment
+from processors import AbstractProcessor
+from configuration import Environment
 
 
 

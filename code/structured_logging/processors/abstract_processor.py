@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from i_processor import IProcessor
+from processors import IProcessor
 
 
 

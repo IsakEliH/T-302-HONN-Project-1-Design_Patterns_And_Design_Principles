@@ -1,0 +1,1 @@
+from infrastructure.app_module import AppModule

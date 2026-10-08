@@ -1,5 +1,5 @@
 import threading
-from structured_logging.command_queue.command import Command
+from command_queue import Command
 
 import time
 
@@ -9,7 +9,7 @@ class Queue:
     def __init__(self, async_wait_delay_in_seconds):
         self.__async_wait_delay_in_seconds = async_wait_delay_in_seconds
         self.__commands = list()
-        self.__lock = threading.lock()
+        self.__lock = threading.Lock()
 
         self.__thread = threading.Thread(target=self.__process)
         self.__thread.daemon = True

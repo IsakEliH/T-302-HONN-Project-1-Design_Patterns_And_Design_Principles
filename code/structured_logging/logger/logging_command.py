@@ -1,4 +1,4 @@
-from structured_logging.command_queue.command import Command
+from command_queue import Command
 
 class LoggingCommand(Command):
     def __init__(self, sink, data):

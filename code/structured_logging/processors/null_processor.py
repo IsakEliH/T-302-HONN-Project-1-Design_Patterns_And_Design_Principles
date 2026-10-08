@@ -1,4 +1,4 @@
-from abstract_processor import AbstractProcessor
+from processors import AbstractProcessor
 
 
 
