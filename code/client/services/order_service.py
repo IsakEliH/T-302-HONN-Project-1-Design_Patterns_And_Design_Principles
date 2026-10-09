@@ -1,9 +1,9 @@
 from injector import inject
-from repositories import OrderRepository
+from client.repositories import OrderRepository
 
 from client.infrastructure.logging.i_logger import ILogger
 from client.models.order import Order
-from services import IPaymentService
+from client.services import IPaymentService
 
 
 class OrderService:

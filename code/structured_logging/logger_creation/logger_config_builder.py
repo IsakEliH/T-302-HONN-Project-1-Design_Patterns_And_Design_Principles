@@ -1,5 +1,5 @@
-from processors import EnvironmentProcessor, IProcessor, NullProcessor
-from sinks import ConsoleSink, FileSink, ISink
+from structured_logging.processors import EnvironmentProcessor, IProcessor, NullProcessor
+from structured_logging.sinks import ConsoleSink, FileSink, ISink
 
 from structured_logging.configuration.environment import Environment
 from structured_logging.configuration.logger_config import LoggerConfig

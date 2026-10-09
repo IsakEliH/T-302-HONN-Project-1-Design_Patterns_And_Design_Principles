@@ -1,5 +1,5 @@
 import json
-from sinks import ISink
+from structured_logging.sinks.i_sink import ISink
 
 class FileSink(ISink):
     def __init__(self, file_path: str):

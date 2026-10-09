@@ -1,4 +1,4 @@
-from sinks import ISink
+from structured_logging.sinks.i_sink import ISink
 import json
 
 class ConsoleSink(ISink):

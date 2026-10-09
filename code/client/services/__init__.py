@@ -1,3 +1,3 @@
-from i_payment_service import IPaymentService
-from order_service import OrderService
-from payment_service_stub import PaymentServiceStub
+from client.services.i_payment_service import IPaymentService
+from client.services.order_service import OrderService
+from client.services.payment_service_stub import PaymentServiceStub

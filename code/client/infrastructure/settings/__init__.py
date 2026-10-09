@@ -1,1 +1,1 @@
-from settings import Settings, LoggingType, Environment
+from client.infrastructure.settings.settings import Settings, LoggingType, Environment

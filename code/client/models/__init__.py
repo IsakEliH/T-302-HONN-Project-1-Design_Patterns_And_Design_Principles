@@ -1,2 +1,2 @@
-from order import Order
-from payment import Payment
+from client.models.order import Order
+from client.models.payment import Payment

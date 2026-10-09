@@ -1,1 +1,1 @@
-from order_repository import OrderRepository
+from client.repositories.order_repository import OrderRepository

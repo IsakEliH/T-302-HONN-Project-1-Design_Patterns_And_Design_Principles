@@ -1,4 +1,4 @@
-from abstract_processor import AbstractProcessor
+from structured_logging.processors.abstract_processor import AbstractProcessor
 
 
 
