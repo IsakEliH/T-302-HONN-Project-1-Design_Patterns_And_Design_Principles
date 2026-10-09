@@ -1,9 +1,10 @@
 from client.infrastructure.logging.i_logger import ILogger
 from client.infrastructure.settings.settings import Settings
 from client.models.payment import Payment
+from client.services.i_payment_service import IPaymentService
 
 
-class PaymentServiceStub():
+class PaymentServiceStub(IPaymentService):
     def __init__(self, settings: Settings, logger: ILogger):
         self.__logger = logger
         self.__settings = settings
