@@ -1,16 +1,22 @@
+from injector import inject
+
 from client.infrastructure.logging.i_logger import ILogger
 from structured_logging.logger.logger import Logger
 
 
 class ClientLogger(ILogger):
-    def error(self, message: str, exception: Exception = None, object: object = None):
-        logger = Logger()
-        logger.log(message=message, level="error", error=exception, object=object)
+    @inject
+    def __init__(self, logger):
+        self.__logger = logger
+    
+    def error(self, message: str, exception: Exception = None):
+        self.__logger = Logger()
+        self.__logger.log(message=message, level="error", error=exception)
 
-    def warning(self, message: str, exception: Exception = None, object: object = None):
-        logger = Logger()
-        logger.log(message=message, level="warning", warning=exception, object=object)
+    def warning(self, message: str, exception: Exception = None):
+        self.__logger = Logger()
+        self.__logger.log(message=message, level="warning", warning=exception)
 
     def info(self, message: str, object: object = None):
-        logger = Logger()
-        logger.log(message=message, level="info", object=object)
+        self.__logger = Logger()
+        self.__logger.log(message=message, level="info", object=object)
