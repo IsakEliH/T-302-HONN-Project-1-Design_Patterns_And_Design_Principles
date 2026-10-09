@@ -1,6 +1,6 @@
-from injector import Binder, Module
-from services import IPaymentService, OrderService, PaymentServiceStub
 from infrastructure.logging import ILogger
+from injector import Binder, Module
+from services import IPaymentService, PaymentServiceStub
 from settings import Settings
 
 
@@ -9,4 +9,9 @@ class AppModule(Module):
         self.__settings = settings
 
     def configure(self, binder: Binder) -> None:
-        pass
+        # Always use the settings given
+        binder.bind(Settings, to=self.__settings)
+
+        # Bind the interfaces to concrete classes/functions
+        binder.bind(IPaymentService, to=PaymentServiceStub)
+        binder.bind(ILogger, to=...)
