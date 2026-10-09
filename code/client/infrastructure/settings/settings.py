@@ -1,4 +1,5 @@
 from enum import Enum
+
 from pydantic import BaseSettings
 
 
@@ -8,14 +9,14 @@ class ContainerSettingEnum(Enum):
 
 
 class LoggingType(ContainerSettingEnum):
-    CONSOLE = 'console'
-    FILE = 'file'
+    CONSOLE = "console"
+    FILE = "file"
 
 
 class Environment(ContainerSettingEnum):
-    DEVELOPMENT = 'development'
-    STAGING = 'staging'
-    PRODUCTION = 'production'
+    DEVELOPMENT = "development"
+    STAGING = "staging"
+    PRODUCTION = "production"
 
 
 class Settings(BaseSettings):
@@ -29,4 +30,4 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = "./client/infrastructure/settings/.env"
-        env_file_encoding = 'utf-8'
+        env_file_encoding = "utf-8"
