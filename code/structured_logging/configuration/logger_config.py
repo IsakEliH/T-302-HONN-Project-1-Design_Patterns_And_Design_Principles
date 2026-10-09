@@ -1,7 +1,7 @@
-from pydantic import BaseSettings
+from pydantic import BaseModel, BaseSettings
 
-from structured_logging.processors.i_processor import IProcessor
-from structured_logging.sinks.i_sink import ISink
+from processors import IProcessor
+from sinks import ISink
 
 
 class LoggerConfig(BaseSettings):
@@ -9,3 +9,6 @@ class LoggerConfig(BaseSettings):
     processor: IProcessor
     is_async: bool
     async_wait_delay_in_seconds: int
+
+    class Config:
+        arbitrary_types_allowed = True
