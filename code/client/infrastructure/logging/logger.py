@@ -1,5 +1,6 @@
-from i_logger import ILogger
+from client.infrastructure.logging.i_logger import ILogger
 from structured_logging.logger.logger import Logger
+
 
 class ClientLogger(ILogger):
     def error(self, message: str, exception: Exception = None, object: object = None):

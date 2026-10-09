@@ -1,2 +1,1 @@
-from i_logger import ILogger
-from logger import Logger
+from client.infrastructure.logging.logger import ILogger, Logger

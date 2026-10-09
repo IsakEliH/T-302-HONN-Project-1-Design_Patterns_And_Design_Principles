@@ -1,6 +1,6 @@
 from abc import abstractmethod
-from i_processor import IProcessor
 
+from structured_logging.processors.i_processor import IProcessor
 
 
 class AbstractProcessor(IProcessor):
@@ -19,4 +19,3 @@ class AbstractProcessor(IProcessor):
     @abstractmethod
     def _before_processing(self, data):
         pass
-

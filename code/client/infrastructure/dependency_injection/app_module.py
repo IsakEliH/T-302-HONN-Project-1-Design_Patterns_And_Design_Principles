@@ -1,9 +1,8 @@
-from logging import Logger
-
-from infrastructure.logging import ILogger
 from injector import Binder, Module
-from services import IPaymentService, PaymentServiceStub
-from settings import Settings
+
+from client.infrastructure.logging import ILogger, Logger
+from client.infrastructure.settings import Settings
+from client.services import IPaymentService, PaymentServiceStub
 
 
 class AppModule(Module):
