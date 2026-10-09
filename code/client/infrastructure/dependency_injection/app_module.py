@@ -1,3 +1,5 @@
+from logging import Logger
+
 from infrastructure.logging import ILogger
 from injector import Binder, Module
 from services import IPaymentService, PaymentServiceStub
@@ -12,6 +14,6 @@ class AppModule(Module):
         # Always use the settings given
         binder.bind(Settings, to=self.__settings)
 
-        # Bind the interfaces to concrete classes/functions
+        # Bind the interfaces to the concrete classes
         binder.bind(IPaymentService, to=PaymentServiceStub)
-        binder.bind(ILogger, to=...)
+        binder.bind(ILogger, to=Logger)
