@@ -11,5 +11,5 @@ class ILogger(ABC):
         pass
 
     @abstractmethod
-    def info(self, message: str):
+    def info(self, message: str, object: object = None):
         pass

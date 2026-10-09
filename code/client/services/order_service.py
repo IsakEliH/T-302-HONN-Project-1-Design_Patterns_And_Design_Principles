@@ -1,5 +1,5 @@
 from client.models.order import Order
-from client.repositories.order_repository import OrderRepository
+from code.client.services.repositories.order_repository import OrderRepository
 from client.services.payment_service_stub import PaymentServiceStub
 from client.infrastructure.logging.i_logger import ILogger
 
