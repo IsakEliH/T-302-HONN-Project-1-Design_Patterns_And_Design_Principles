@@ -10,8 +10,9 @@ def create_logger_config(
         builder.with_console_sink()
     elif settings.logging_type is LoggingType.FILE:
         builder.with_file_sink(settings.order_file_path)
-    else:
-        builder.with_custom_sink(...)  # TODO get sink somehow
+    else:  # For later scalability, when a custom sink has been added
+        raise NotImplementedError("Custom sink implementation needed")
+        builder.with_custom_sink(...)
 
     if settings.logging_is_async:
         builder.as_async(settings.logging_async_delay)
