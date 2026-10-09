@@ -1,2 +1,2 @@
 from i_logger import ILogger
-from logger_config_factory import create_logger_config
+from logger import Logger
