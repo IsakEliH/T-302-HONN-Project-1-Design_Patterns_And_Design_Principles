@@ -1,6 +1,7 @@
+from injector import Module, provider, singleton
+
 from structured_logging.command_queue import Queue
 from structured_logging.configuration import LoggerConfig
-from injector import Module, provider, singleton
 from structured_logging.logger.logger import Logger
 
 
