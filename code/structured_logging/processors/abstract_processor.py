@@ -4,7 +4,8 @@ from structured_logging.processors.i_processor import IProcessor
 
 
 class AbstractProcessor(IProcessor):
-    _next_processor: IProcessor = None
+    def __init__(self) -> None:
+        self._next_processor: IProcessor | None = None
 
     def set_next(self, processor: IProcessor) -> IProcessor:
         self._next_processor = processor
@@ -12,7 +13,8 @@ class AbstractProcessor(IProcessor):
 
     def handle(self, data) -> str:
         self._before_processing(data)
-        if self._next_processor:
+        
+        if self._next_processor :
             return self._next_processor.handle(data)
         return None
 
