@@ -1,5 +1,5 @@
 from injector import inject
-from client.services.repositories.order_repository import OrderRepository
+from client.repositories.order_repository import OrderRepository
 
 from client.infrastructure.logging.i_logger import ILogger
 from client.models.order import Order

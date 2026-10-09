@@ -6,7 +6,7 @@ from structured_logging.logger.logger import Logger
 
 class ClientLogger(ILogger):
     @inject
-    def __init__(self, logger):
+    def __init__(self, logger: Logger):
         self.__logger = logger
     
     def error(self, message: str, exception: Exception = None):
