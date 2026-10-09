@@ -1,5 +1,6 @@
 injector==0.24.0
-pydantic==2.13.5
+pydantic>=2,<3
+pydantic-settings>=2,<3
 python-dotenv==1.2.4
 six==1.17.0
 typing_extensions==4.16.0

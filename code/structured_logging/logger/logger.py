@@ -1,8 +1,8 @@
 from typing import Any, Iterable
 
-from command_queue import Queue
-from configuration import LoggerConfig
-from logger.logging_command import LoggingCommand
+from structured_logging.command_queue import Queue
+from structured_logging.configuration import LoggerConfig
+from structured_logging.logger.logging_command import LoggingCommand
 
 
 class Logger:

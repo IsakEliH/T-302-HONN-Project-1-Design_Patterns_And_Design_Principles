@@ -1,5 +1,5 @@
 import threading
-from command_queue import Command
+from structured_logging.command_queue import Command
 
 import time
 

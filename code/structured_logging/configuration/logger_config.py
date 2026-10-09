@@ -1,7 +1,6 @@
-from pydantic import BaseModel, BaseSettings
-
-from processors import IProcessor
-from sinks import ISink
+from structured_logging.processors import IProcessor
+from pydantic_settings import BaseSettings
+from structured_logging.sinks import ISink
 
 
 class LoggerConfig(BaseSettings):
