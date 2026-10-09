@@ -1,2 +1,2 @@
-from logger_creation.logger_config_builder import LoggerConfigBuilder
-from logger_creation.logger_factory import create_logger
+from structured_logging.logger_creation.logger_config_builder import LoggerConfigBuilder
+from structured_logging.logger_creation.logger_factory import create_logger

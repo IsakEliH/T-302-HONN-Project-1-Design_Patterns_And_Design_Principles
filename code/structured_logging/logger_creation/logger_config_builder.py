@@ -1,8 +1,10 @@
-from structured_logging.processors import EnvironmentProcessor, IProcessor, NullProcessor
+from structured_logging.configuration import Environment, LoggerConfig
+from structured_logging.processors import (
+    EnvironmentProcessor,
+    IProcessor,
+    NullProcessor,
+)
 from structured_logging.sinks import ConsoleSink, FileSink, ISink
-
-from configuration import Environment
-from configuration import LoggerConfig
 
 
 class LoggerConfigBuilder:
@@ -35,13 +37,15 @@ class LoggerConfigBuilder:
         return self.add_processor(processor)
 
     def add_processor(self, processor: IProcessor) -> "LoggerConfigBuilder":
-        processor.set_next(processor)
-        self.processor = processor
+        self._last_processor.set_next(processor)
+        self._last_processor = processor
         return self
 
     def _clear(self) -> None:
         self.sink: ISink = ConsoleSink()
         self.processor: IProcessor = NullProcessor()
+        self._last_processor: IProcessor = self.processor
+
         self.is_async: bool = False
         self.async_wait_delay_in_seconds: int = 0
 

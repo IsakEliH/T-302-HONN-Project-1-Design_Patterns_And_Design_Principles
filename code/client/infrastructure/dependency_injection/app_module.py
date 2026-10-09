@@ -1,8 +1,12 @@
 from injector import Binder, Module
+
 from client.infrastructure.logging.i_logger import ILogger
 from client.infrastructure.logging.logger import ClientLogger
+from client.infrastructure.logging.logger_config_factory import create_logger_config
 from client.infrastructure.settings import Settings
 from client.services import IPaymentService, PaymentServiceStub
+from structured_logging.logger_creation.logger_config_builder import LoggerConfigBuilder
+from structured_logging.logger_creation.logger_factory import create_logger
 
 
 class AppModule(Module):
@@ -15,4 +19,15 @@ class AppModule(Module):
 
         # Bind the interfaces to the concrete classes
         binder.bind(IPaymentService, to=PaymentServiceStub)
-        binder.bind(ILogger, to=ClientLogger)
+
+        # Create the structured logging configuration
+        logger_config = create_logger_config(
+            self.__settings,
+            LoggerConfigBuilder(),
+        )
+
+        # Get Logger from the structured logging injector
+        structured_logger = create_logger(logger_config)
+
+        # Bind ILogger to the configured ClientLogger
+        binder.bind(ILogger, to=ClientLogger(structured_logger))

@@ -1,1 +1,1 @@
-from infrastructure.app_module import AppModule
+from structured_logging.infrastructure.app_module import AppModule
