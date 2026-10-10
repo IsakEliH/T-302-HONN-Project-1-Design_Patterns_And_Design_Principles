@@ -1,6 +1,7 @@
 from client.infrastructure.settings.settings import LoggingType, Settings
 from structured_logging.configuration.logger_config import LoggerConfig
 from structured_logging.logger_creation.logger_config_builder import LoggerConfigBuilder
+from client.infrastructure.logging.MaskingProcessor import MaskingProcessor
 
 
 def create_logger_config(
@@ -16,7 +17,7 @@ def create_logger_config(
 
     if settings.logging_is_async:
         builder.as_async(settings.logging_async_delay)
-
     builder.add_environment(settings.environment)
+    builder.add_processor(MaskingProcessor) ## held að maður á að gera þetta right??
 
     return builder.build()

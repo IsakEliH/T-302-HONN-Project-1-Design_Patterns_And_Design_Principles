@@ -1,13 +1,11 @@
-from abc import ABC, abstractmethod
+from structured_logging.processors.abstract_processor import AbstractProcessor
 
 
-class MaskingProcessor():
-    def __init__(self, list_keys: list, main_dict: dict):
+class MaskingProcessor(AbstractProcessor):
+    def __init__(self, list_keys: list):
         self.list_keys = list_keys
-        self.main_dict = main_dict
 
-    @abstractmethod
-    def change_keys(self, list_key: list, main_dict: dict):
+    def _before_processing(self, list_key: list, data: dict):
         for i in list_key:
-            if i == main_dict:
-                main_dict[i] = "***"
+            if i == data:
+                data[i] = "***"
