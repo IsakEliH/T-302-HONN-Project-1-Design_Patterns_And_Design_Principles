@@ -4,7 +4,7 @@ from structured_logging.processors.abstract_processor import AbstractProcessor
 class MaskingProcessor(AbstractProcessor):
     def __init__(self, list_keys: list):
         super().__init__()
-        self.list_keys = list_keys
+        self.__list_keys = list_keys
 
     def _before_processing(self, data: dict):
         object_data = data.get("payment")
@@ -12,6 +12,6 @@ class MaskingProcessor(AbstractProcessor):
         if not isinstance(object_data, dict):
             return
 
-        for key in self.list_keys:
+        for key in self.__list_keys:
             if key in object_data:
                 object_data[key] = "***"
