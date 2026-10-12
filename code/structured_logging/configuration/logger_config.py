@@ -11,3 +11,5 @@ class LoggerConfig(BaseSettings):
 
     class Config:
         arbitrary_types_allowed = True
+
+ # ekki viss um hvort logger_config ætti að vera fallið eða klasinn??
